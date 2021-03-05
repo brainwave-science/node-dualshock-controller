@@ -4,6 +4,8 @@
 var options,
     controllerConfig;
 
+const { exception } = require('console');
+
 //provides access to the current options and configs.
 var config = {
     setOptions: function(opts) {
@@ -36,7 +38,7 @@ var config = {
         if (typeof options.config === "object") {
             controllerConfiguration = options.config;
         } else {
-            controllerConfiguration = require('./../controllerConfigurations/' + options.config);
+            throw new Exception("No DS4 controller configuration found.")
         }
 
         //set the current controllerConfiguration
